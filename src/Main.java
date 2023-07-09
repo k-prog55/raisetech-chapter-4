@@ -1,17 +1,37 @@
-// Shift を 2 回押して 'どこでも検索' ダイアログを開き、`show whitespaces` と入力して
-// Enter キーを押します。これでコードに空白文字が表示されます。
+import java.util.Comparator;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        // ハイライトされたテキストにキャレットがある状態で Opt+Enter を押して
-        // IntelliJ IDEA が提案する修正方法を表示します。
-        System.out.printf("Hello and welcome!");
 
-        // コードを実行するには Ctrl+R を押すか、ガターにある緑の矢印ボタンをクリックします。
-        for (int i = 1; i <= 5; i++) {
+        //リストを作成
+        List<String> names = List.of("yamada", "tanaka", "yasuda", "suzuki", "iida");
+        //aを含む要素を取り出す
+        List<String> result = names.stream().filter(name -> name.contains("a")).toList();
+        //iで始まる要素を取り出す
+        List<String> result2 = names.stream().filter(name -> name.startsWith("i")).toList();
+        //アルファベットの逆順でソートする
+        List<String> sortedResult3 = names.stream().sorted(Comparator.reverseOrder()).toList();
+        //要素を小文字から大文字へ変換
+        List<String> result4 = names.stream().map(name -> name.toUpperCase()).toList();
+        //名前大文字のリストを作成
+        List<String> upperCaseNames = List.of("GONDA", "IWAMASA", "NAKAZAWA");
+        //要素を大文字から小文字へ変換
+        List<String> result5 = upperCaseNames.stream().map(name -> name.toLowerCase()).toList();
 
-            // Ctrl+D を押してコードのデバッグを開始します。ブレークポイントを 1 つ設定しましたが、
-            // Cmd+F8 を押すといつでも他のブレークポイントを追加できます。
-            System.out.println("i = " + i);
-        }
+        //iで始まる要素の個数を調べる
+        long count = names.stream().filter(name -> name.startsWith("i")).count();
+        //yamadaという要素があるか判定する
+        boolean hasYamada = names.stream().anyMatch(name -> name.equals("yamada"));
+
+        System.out.println(result);
+        System.out.println(result2);
+        System.out.println(sortedResult3);
+        System.out.println(result4);
+        System.out.println(upperCaseNames);
+        System.out.println(result5);
+        System.out.println(count);
+        System.out.println(hasYamada);
+
     }
 }
