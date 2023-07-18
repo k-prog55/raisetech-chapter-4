@@ -6,8 +6,8 @@ public class Main {
 
         //リストを作成
         List<String> names = List.of("yamada", "tanaka", "yasuda", "suzuki", "iida");
-        //aを含む要素を取り出す
-        List<String> result = names.stream().filter(name -> name.contains("a")).toList();
+        //yを含む要素を取り出す（branchの変更点）
+        List<String> result = names.stream().filter(name -> name.contains("y")).toList();
         //iで始まる要素を取り出す
         List<String> result2 = names.stream().filter(name -> name.startsWith("i")).toList();
         //アルファベットの逆順でソートする
